@@ -16,7 +16,7 @@ from django.views.generic import (
 
 class home(generic.ListView):
     model = Post
-    template_name = 'blog/home.html'
+    template_name = 'blog/home.html'   #<app>/<model>_<view_type>.html
 
 
 class PostDetailView(DetailView):
@@ -25,7 +25,7 @@ class PostDetailView(DetailView):
 
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
-    fields = ['title', 'content']
+    fields = ['title', 'content', 'featured_image']
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -34,7 +34,7 @@ class PostCreateView(LoginRequiredMixin, CreateView):
 
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Post
-    fields = ['title', 'content']
+    fields = ['title', 'content', 'featured_image']
 
     def form_valid(self, form):
         form.instance.author = self.request.user

@@ -141,7 +141,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-
 LOGIN_REDIRECT_URL = "blog-home"
 LOGIN_URL = 'login'
 

@@ -16,11 +16,13 @@ from django.views.generic import (
 
 class home(generic.ListView):
     model = Post
+    paginate_by = 3
     template_name = 'blog/home.html'   #<app>/<model>_<view_type>.html
 
 
 class PostDetailView(DetailView):
     model = Post
+    fields = ['title', 'content', 'featured_image']
 
 
 class PostCreateView(LoginRequiredMixin, CreateView):
